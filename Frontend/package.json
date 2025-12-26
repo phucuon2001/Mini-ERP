@@ -15,9 +15,11 @@
 	"bugs": {
 		"url": "https://github.com/condorheroblog/react-antd-admin/issues"
 	},
+	"keywords": [],
 	"imports": {
 		"#*": "./*"
 	},
+	"main": "eslint.config.js",
 	"scripts": {
 		"dev": "vite --host",
 		"build": "NODE_OPTIONS=--max-old-space-size=8192 vite build",
@@ -117,10 +119,8 @@
 			"eslint --fix"
 		]
 	},
-	"main": "eslint.config.js",
 	"directories": {
 		"doc": "docs",
 		"test": "tests"
-	},
-	"keywords": []
+	}
 }
