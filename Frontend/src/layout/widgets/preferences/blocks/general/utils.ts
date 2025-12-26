@@ -18,5 +18,12 @@ export const getLanguageItems: () => any = (
 			// Select
 			value: "en-US",
 		},
+		{
+			label: "Việt nam",
+			// Menu
+			key: "vi-VN",
+			// Select
+			value: "vi-VN",
+		},
 	];
 };

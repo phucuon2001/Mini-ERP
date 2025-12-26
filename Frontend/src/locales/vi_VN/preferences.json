@@ -1,0 +1,114 @@
+{
+	"title": "Tùy chỉnh giao diện",
+	"copyPreferences": "Sao chép cài đặt",
+	"copyPreferencesSuccessTitle": "Sao chép thành công",
+	"copyPreferencesSuccess": "Sao chép thành công, vui lòng ghi đè tại `src/store/preferences/index.ts`",
+	"clearAndLogout": "Xóa bộ nhớ & Đăng xuất",
+	"theme": {
+		"title": "Giao diện",
+		"followSystem": "Theo hệ thống",
+		"light": "Sáng",
+		"dark": "Tối",
+		"colorBlindMode": "Chế độ hỗ trợ người mù màu",
+		"grayMode": "Chế độ xám",
+		"radius": "Bo góc",
+		"builtin": {
+			"title": "Màu tích hợp",
+			"red": "Đỏ Dust",
+			"volcano": "Núi lửa",
+			"orange": "Cam hoàng hôn",
+			"gold": "Vàng Calendula",
+			"yellow": "Vàng bình minh",
+			"lime": "Xanh chanh",
+			"green": "Xanh Bắc Cực",
+			"cyan": "Xanh Cyan",
+			"blue": "Xanh bình minh",
+			"geekblue": "Xanh Geek",
+			"purple": "Tím hoàng kim",
+			"magenta": "Đỏ Magenta",
+			"gray": "Xám",
+			"custom": "Tùy chỉnh"
+		}
+	},
+	"layout": {
+		"title": "Bố cục",
+		"topNavigation": "Thanh điều hướng trên",
+		"topNavigationTip": "Menu hiển thị ở vị trí trên cùng",
+		"sideNavigation": "Thanh điều hướng bên",
+		"sideNavigationTip": "Menu hiển thị ở bên trái",
+		"twoColumnNavigation": "Điều hướng hai cột",
+		"twoColumnNavigationTip": "Menu dọc hai cột ở bên trái",
+		"mixedNavigation": "Điều hướng kết hợp",
+		"mixedNavigationTip": "Điều hướng chính ở trên, điều hướng phụ ở bên"
+	},
+	"sidebar": {
+		"title": "Thanh bên",
+		"width": "Chiều rộng",
+		"enable": "Hiển thị thanh bên",
+		"collapsedWidth": "Chiều rộng khi thu gọn menu",
+		"collapsed": "Thu gọn menu",
+		"collapsedShowTitle": "Hiện tiêu đề menu khi thu gọn",
+		"firstColumnWidthInTwoColumnNavigation": "Chiều rộng cột đầu tiên trong điều hướng hai cột",
+		"sidebarTheme": "Giao diện thanh bên",
+		"accordion": "Menu dạng accordion",
+		"autoActivateChild": "Tự động kích hoạt menu con",
+		"autoActivateChildTip": "`Bật` để tự động kích hoạt menu con khi click menu.",
+		"expandOnHover": "Mở rộng khi rê chuột",
+		"expandOnHoverTip": "Khi rê chuột lên menu:\n `Bật` sẽ mở rộng menu con\n `Tắt` sẽ mở rộng toàn bộ thanh bên."
+	},
+	"tabbar": {
+		"title": "Thanh tab",
+		"enable": "Bật thanh tab",
+		"icon": "Hiển thị biểu tượng tab",
+		"showMore": "Hiển thị nút thêm",
+		"showMaximize": "Hiển thị nút toàn màn hình",
+		"persist": "Ghi nhớ các tab",
+		"draggable": "Cho phép kéo sắp xếp tab",
+		"styleType": {
+			"title": "Kiểu giao diện tab",
+			"chrome": "Chrome",
+			"card": "Thẻ",
+			"plain": "Đơn giản",
+			"brisk": "Nhanh nhẹn"
+		},
+		"contextMenu": {
+			"refresh": "Làm mới",
+			"close": "Đóng",
+			"pin": "Ghim",
+			"unpin": "Bỏ ghim",
+			"closeLeft": "Đóng các tab bên trái",
+			"closeRight": "Đóng các tab bên phải",
+			"closeOthers": "Đóng các tab khác",
+			"closeAll": "Đóng tất cả tab",
+			"openInNewWindow": "Mở trong cửa sổ mới",
+			"maximize": "Phóng to",
+			"restoreMaximize": "Khôi phục"
+		}
+	},
+	"animation": {
+		"title": "Hiệu ứng",
+		"loading": "Hiển thị tải trang",
+		"transition": "Hiệu ứng chuyển trang",
+		"progress": "Tiến trình tải trang"
+	},
+	"general": {
+		"title": "Chung",
+		"language": "Ngôn ngữ",
+		"dynamicTitle": "Tiêu đề động",
+		"watermark": "Chữ mờ (watermark)",
+		"watermarkTip": "Watermark hiển thị nickname trên trang web, không khuyến khích dùng",
+		"watermarkContent": "Nội dung watermark",
+		"enableCheckUpdate": "Kiểm tra cập nhật",
+		"enableBackTopButton": "Nút quay về đầu trang"
+	},
+	"footer": {
+		"title": "Chân trang",
+		"showFooter": "Hiển thị chân trang",
+		"fixedFooter": "Cố định chân trang",
+		"companyName": "Tên công ty",
+		"companyWebsite": "Trang web công ty",
+		"copyrightDate": "Năm bản quyền",
+		"ICPNumber": "Số ICP",
+		"ICPLink": "Liên kết ICP"
+	}
+}

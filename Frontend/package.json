@@ -116,5 +116,11 @@
 		"*": [
 			"eslint --fix"
 		]
-	}
+	},
+	"main": "eslint.config.js",
+	"directories": {
+		"doc": "docs",
+		"test": "tests"
+	},
+	"keywords": []
 }

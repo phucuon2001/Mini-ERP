@@ -54,6 +54,9 @@ export default function App() {
 		else if (language === "zh-CN") {
 			dayjs.locale("zh-cn");
 		}
+		else if (language === "vi-VN") {
+			dayjs.locale("vi-VN");
+		}
 	}, [language]);
 
 	/**

@@ -10,6 +10,7 @@ export function useLanguage() {
 
 	const handleChangeLanguage = useCallback(
 		async (locale: LanguageType) => {
+			console.warn(locale);
 			// store language
 			changeLanguage(locale);
 			// react-i18n language
