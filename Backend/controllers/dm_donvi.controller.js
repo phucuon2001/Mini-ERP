@@ -6,11 +6,16 @@ const Dm_donvi = db['dm_donvi'];
 exports.getAll = async (req, res) => {
   try {
     const data = await Dm_donvi.findAll();
-    res.json(data);
+    return res.json(data);
   } catch (err) {
-    res.status(500).send('Lỗi lấy danh sách');
+    console.error('❌ getAll error:', err);
+    return res.status(500).json({
+      message: 'Lỗi lấy danh sách',
+      error: err.message
+    });
   }
 };
+
 
 // GET by ID
 exports.getById = async (req, res) => {

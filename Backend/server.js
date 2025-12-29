@@ -63,6 +63,14 @@ app.delete('/delete/:id', (req, res) => {
   });
 });
 
+
+
+const donviRoutes = require('./routes/dm_donvi.routes');
+app.use('/api/donvi', donviRoutes);
+
+const table01Routes = require('./routes/table01.routes');
+app.use('/api/table01', table01Routes);
+
 app.listen(3036, () => {
   console.log('🚀 Server đang chạy ở cổng 3036');
 });

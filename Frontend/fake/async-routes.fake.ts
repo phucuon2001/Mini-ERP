@@ -19,11 +19,11 @@ const systemManagementRouter = {
 	},
 	children: [
 		{
-			path: "/system/user",
-			component: "/system/user/index.tsx",
+			path: "/system/menu",
+			component: "/system/menu/index.tsx",
 			handle: {
-				icon: "UserOutlined",
-				title: "common.menu.user",
+				icon: "MenuOutlined",
+				title: "common.menu.menu",
 				roles: ["admin"],
 				permissions: [
 					"permission:button:add",
@@ -47,11 +47,11 @@ const systemManagementRouter = {
 			},
 		},
 		{
-			path: "/system/menu",
-			component: "/system/menu/index.tsx",
+			path: "/system/user",
+			component: "/system/user/index.tsx",
 			handle: {
-				icon: "MenuOutlined",
-				title: "common.menu.menu",
+				icon: "UserOutlined",
+				title: "common.menu.user",
 				roles: ["admin"],
 				permissions: [
 					"permission:button:add",
@@ -67,6 +67,20 @@ const systemManagementRouter = {
 				keepAlive: false,
 				icon: "ApartmentOutlined",
 				title: "common.menu.dept",
+				roles: ["admin"],
+				permissions: [
+					"permission:button:add",
+					"permission:button:update",
+					"permission:button:delete",
+				],
+			},
+		},
+		{
+			path: "/system/CuaHang",
+			component: "/system/menu/CuaHang.tsx",
+			handle: {
+				icon: "UserOutlined",
+				title: "Danh mục cửa hàng",
 				roles: ["admin"],
 				permissions: [
 					"permission:button:add",

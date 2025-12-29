@@ -5,6 +5,7 @@ const Table01 = db['table01'];
 // GET all
 exports.getAll = async (req, res) => {
   try {
+    console.log(Table01);
     const data = await Table01.findAll();
     res.json(data);
   } catch (err) {

@@ -35,6 +35,12 @@ const systemMenu = [
 		name: "common.menu.dept",
 	},
 	{
+		parentId: system,
+		id: system + 4,
+		menuType: 0,
+		name: "common.menu.dept1",
+	},
+	{
 		parentId: system + 4,
 		id: system + 4 + 1,
 		menuType: 3,
