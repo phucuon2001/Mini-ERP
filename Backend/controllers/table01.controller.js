@@ -1,6 +1,7 @@
 // controllers/table01.controller.js
-const db = require('../models/table01');
-const Table01 = db['table01'];
+const db = require('../models');
+const Table01 = db.table01;
+
 
 // GET all
 exports.getAll = async (req, res) => {

@@ -1,18 +1,15 @@
 // controllers/dm_donvi.controller.js
-const db = require('../models/dm_donvi');
-const Dm_donvi = db['dm_donvi'];
+const db = require('../models');
+const Dm_donvi = db.dm_donvi;
 
 // GET all
 exports.getAll = async (req, res) => {
   try {
+    console.log(Dm_donvi);
     const data = await Dm_donvi.findAll();
-    return res.json(data);
+    res.json(data);
   } catch (err) {
-    console.error('❌ getAll error:', err);
-    return res.status(500).json({
-      message: 'Lỗi lấy danh sách',
-      error: err.message
-    });
+    res.status(500).send('Lỗi lấy danh sách');
   }
 };
 
