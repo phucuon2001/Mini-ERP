@@ -1,11 +1,9 @@
 // controllers/dm_donvi.controller.js
 const db = require('../models');
-const Dm_donvi = db.dm_donvi;
+const Dm_donvi = db['dm_donvi'];
 
-// GET all
 exports.getAll = async (req, res) => {
   try {
-    console.log(Dm_donvi);
     const data = await Dm_donvi.findAll();
     res.json(data);
   } catch (err) {
@@ -13,8 +11,6 @@ exports.getAll = async (req, res) => {
   }
 };
 
-
-// GET by ID
 exports.getById = async (req, res) => {
   try {
     const item = await Dm_donvi.findByPk(req.params.id);
@@ -25,7 +21,6 @@ exports.getById = async (req, res) => {
   }
 };
 
-// CREATE
 exports.create = async (req, res) => {
   try {
     const item = await Dm_donvi.create(req.body);
@@ -35,24 +30,21 @@ exports.create = async (req, res) => {
   }
 };
 
-// UPDATE
 exports.update = async (req, res) => {
   try {
-    const [updated] = await Dm_donvi.update(req.body, {
-      where: { ID: req.params.id }
-    });
-    if (updated === 0) return res.status(404).send('Không tìm thấy để cập nhật');
+    const item = await Dm_donvi.findByPk(req.params.id);
+    if (!item) return res.status(404).send('Không tìm thấy để cập nhật');
+    await item.update(req.body);
     res.send('Cập nhật thành công');
   } catch (err) {
     res.status(500).send('Lỗi cập nhật');
   }
 };
 
-// DELETE
 exports.remove = async (req, res) => {
   try {
     const deleted = await Dm_donvi.destroy({
-      where: { ID: req.params.id }
+      where: { id: req.params.id }
     });
     if (deleted === 0) return res.status(404).send('Không tìm thấy để xoá');
     res.send('Xoá thành công');

@@ -22,7 +22,6 @@ db.connect(err => {
   console.log('✅ Kết nối MySQL thành công!');
 });
 
-// ✅ Route thủ công GET từ MySQL
 app.get('/', (req, res) => {
   const sqlQuery = 'SELECT * FROM bms_pmc_2025_db.table01';
   db.query(sqlQuery, (err, results) => {
@@ -34,7 +33,6 @@ app.get('/', (req, res) => {
   });
 });
 
-// ✅ Các route thủ công khác
 app.post('/create', (req, res) => {
   const { Ma, Ten } = req.body;
   const sqlInsert = 'INSERT INTO bms_pmc_2025_db.table01 (Ma, Ten) VALUES (?, ?)';
@@ -70,6 +68,9 @@ app.use('/api/donvi', donviRoutes);
 
 const table01Routes = require('./routes/table01.routes');
 app.use('/api/table01', table01Routes);
+
+const CuaHangRoutes = require('./routes/dm_cuahang.routes');
+app.use('/api/cuahang', CuaHangRoutes);
 
 app.listen(3036, () => {
   console.log('🚀 Server đang chạy ở cổng 3036');

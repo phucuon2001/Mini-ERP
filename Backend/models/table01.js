@@ -1,5 +1,5 @@
-// models/table01.js
-module.exports = (sequelize, DataTypes) => {
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
   return sequelize.define('table01', {
     ID: {
       autoIncrement: true,
@@ -16,7 +16,18 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true
     }
   }, {
+    sequelize,
     tableName: 'table01',
-    timestamps: false
+    timestamps: false,
+    indexes: [
+      {
+        name: "PRIMARY",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "ID" },
+        ]
+      },
+    ]
   });
 };

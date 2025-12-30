@@ -1,4 +1,3 @@
-// generate-crud.js
 const fs = require('fs');
 const path = require('path');
 
@@ -9,19 +8,21 @@ const routesDir = path.join(__dirname, 'routes');
 if (!fs.existsSync(controllersDir)) fs.mkdirSync(controllersDir);
 if (!fs.existsSync(routesDir)) fs.mkdirSync(routesDir);
 
-// Lấy danh sách model file (bỏ qua index.js)
-const modelFiles = fs.readdirSync(modelsDir).filter(f => f !== 'index.js' && f.endsWith('.js'));
+const modelFiles = fs.readdirSync(modelsDir).filter(f =>
+  f.endsWith('.js') &&
+  f !== 'index.js' &&
+  f !== 'init-models.js'
+);
 
 modelFiles.forEach(file => {
-  const modelName = path.basename(file, '.js'); // vd: dmDonvi
-  const className = modelName.charAt(0).toUpperCase() + modelName.slice(1); // DmDonvi
+  const modelName = path.basename(file, '.js');
+  const className = modelName.charAt(0).toUpperCase() + modelName.slice(1);
 
   const controllerContent = `
 // controllers/${modelName}.controller.js
 const db = require('../models');
 const ${className} = db['${modelName}'];
 
-// GET all
 exports.getAll = async (req, res) => {
   try {
     const data = await ${className}.findAll();
@@ -31,7 +32,6 @@ exports.getAll = async (req, res) => {
   }
 };
 
-// GET by ID
 exports.getById = async (req, res) => {
   try {
     const item = await ${className}.findByPk(req.params.id);
@@ -42,7 +42,6 @@ exports.getById = async (req, res) => {
   }
 };
 
-// CREATE
 exports.create = async (req, res) => {
   try {
     const item = await ${className}.create(req.body);
@@ -52,24 +51,21 @@ exports.create = async (req, res) => {
   }
 };
 
-// UPDATE
 exports.update = async (req, res) => {
   try {
-    const [updated] = await ${className}.update(req.body, {
-      where: { ID: req.params.id }
-    });
-    if (updated === 0) return res.status(404).send('Không tìm thấy để cập nhật');
+    const item = await ${className}.findByPk(req.params.id);
+    if (!item) return res.status(404).send('Không tìm thấy để cập nhật');
+    await item.update(req.body);
     res.send('Cập nhật thành công');
   } catch (err) {
     res.status(500).send('Lỗi cập nhật');
   }
 };
 
-// DELETE
 exports.remove = async (req, res) => {
   try {
     const deleted = await ${className}.destroy({
-      where: { ID: req.params.id }
+      where: { id: req.params.id }
     });
     if (deleted === 0) return res.status(404).send('Không tìm thấy để xoá');
     res.send('Xoá thành công');
@@ -81,8 +77,6 @@ exports.remove = async (req, res) => {
 
   fs.writeFileSync(path.join(controllersDir, `${modelName}.controller.js`), controllerContent);
 
-
-  // Route generator
   const routeContent = `
 // routes/${modelName}.routes.js
 const express = require('express');

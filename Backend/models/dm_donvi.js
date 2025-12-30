@@ -1,6 +1,5 @@
-const { Sequelize } = require('sequelize');
-
-module.exports = (sequelize, DataTypes) => {
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
   return sequelize.define('dm_donvi', {
     id: {
       autoIncrement: true,
@@ -41,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
     ngay_tao: {
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+      defaultValue: Sequelize.Sequelize.literal('CURRENT_TIMESTAMP')
     },
     nguoi_tao_id: {
       type: DataTypes.INTEGER.UNSIGNED,
@@ -56,7 +55,26 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true
     }
   }, {
+    sequelize,
     tableName: 'dm_donvi',
-    timestamps: false
+    timestamps: false,
+    indexes: [
+      {
+        name: "PRIMARY",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "id" },
+        ]
+      },
+      {
+        name: "uq_dm_donvi_ma",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "ma" },
+        ]
+      },
+    ]
   });
 };

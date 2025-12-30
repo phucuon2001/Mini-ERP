@@ -1,18 +1,27 @@
-// models/index.js
 const { Sequelize, DataTypes } = require('sequelize');
+const initModels = require('./init-models');
 
 const sequelize = new Sequelize('bms_pmc_2025_db', 'appuser', 'C#tGAP$v#kgPizw!Fe', {
   host: '103.9.211.220',
-  dialect: 'mysql'
+  dialect: 'mysql',
+  port: 3306,
+  logging: false,
 });
 
-const db = {};
+const {
+  dm_cuahang,
+  dm_donvi,
+  dm_nguoidung,
+  table01,
+} = initModels(sequelize);
 
-db.Sequelize = Sequelize;
-db.sequelize = sequelize;
-
-// import models và truyền sequelize vào
-db.table01 = require('./table01')(sequelize, DataTypes);
-db.dm_donvi = require('./dm_donvi')(sequelize, DataTypes); // nếu có
+const db = {
+  sequelize,
+  Sequelize,
+  dm_cuahang,
+  dm_donvi,
+  dm_nguoidung,
+  table01,
+};
 
 module.exports = db;

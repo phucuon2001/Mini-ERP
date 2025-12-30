@@ -1,7 +1,7 @@
-// routes/init-models.routes.js
+// routes/dm_cuahang.routes.js
 const express = require('express');
 const router = express.Router();
-const controller = require('../controllers/init-models.controller');
+const controller = require('../controllers/dm_cuahang.controller');
 
 router.get('/', controller.getAll);
 router.get('/:id', controller.getById);
